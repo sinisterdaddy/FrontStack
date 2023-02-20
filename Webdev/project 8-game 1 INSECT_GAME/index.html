@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Catch The Animal</title>
+  </head>
+  <body>
+    <div class="screen">
+      <h1>Catch The Animal</h1>
+      <button class="btn" id="start-btn">Play Game</button>
+    </div>
+
+    <div class="screen">
+      <h1>What is your "favorite" Animal?</h1>
+      <ul class="Animals-list">
+        <li>
+          <button class="choose-Animal-btn">
+            <p>DOG</p>
+            <img src="images/dog.png" alt="dog">
+          </button>
+        </li>
+        <li>
+          <button class="choose-Animal-btn">
+            <p>DEER</p>
+            <img
+               src="images/deer.png"
+               alt="deer"
+               />
+          </button>
+        </li>
+        <li>
+          <button class="choose-Animal-btn">
+            <p>CAT</p>
+            <img
+               src="images/cat.png"
+               alt="CAT"
+               />
+          </button>
+        </li>
+        <li>
+          <button class="choose-Animal-btn">
+            <p>BEAR</p>
+            <img
+               src="images/bear.png"
+               alt="bear"
+               />
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="screen game-container" id="game-container">
+      <h3 id="time" class="time">Time: 00:00</h3>
+      <h3 id="score" class="score">Score: 0</h3>
+      <h5 id="message" class="message">
+        you do know that you can't win this ? <br>
+        quit already!!!!!!
+      </h5>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
