@@ -1,0 +1,39 @@
+def get_fds():
+    """Get a set of functional dependencies from user input."""
+    fds = set()
+    while True:
+        fd = input("Enter a functional dependency (in the format 'X -> Y', or 'quit' to exit): ")
+        if fd == "quit":
+            break
+        fd_parts = fd.split("->")
+        fds.add((frozenset(fd_parts[0].strip()), frozenset(fd_parts[1].strip())))
+    return fds
+
+def closure(attr, fds):
+    """Return the closure of an attribute `attr` under a set of functional dependencies `fds`."""
+    closure = set(attr)
+    new_fds = fds.copy()
+    while True:
+        updated = False
+        for fd in new_fds:
+            if fd[0].issubset(closure):
+                if not fd[1].issubset(closure):
+                    closure |= fd[1]
+                    updated = True
+                new_fds.remove(fd)
+        if not updated:
+            break
+    return closure
+
+# Get the functional dependencies from user input
+fds = get_fds()
+
+# Get the attribute set from user input
+attr = input("Enter an attribute set (in the format 'A,B,C', without spaces): ")
+attr = set(attr.split(","))
+
+# Compute the closure of the attribute set under the functional dependencies
+attr_closure = closure(attr, fds)
+
+# Print the closure
+print("Closure:", attr_closure)
